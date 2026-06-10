@@ -46,6 +46,7 @@ app.secret_key = "supersecretkey"
 UPLOAD_FOLDER = "uploads"
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
 @app.route('/')
@@ -76,7 +77,8 @@ def upload_resume():
         app.config['UPLOAD_FOLDER'],
         file.filename
     )
-
+      os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    
     file.save(filepath)
 
     extracted_text = extract_text_from_pdf(filepath)
