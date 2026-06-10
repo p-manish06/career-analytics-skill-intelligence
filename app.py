@@ -36,6 +36,7 @@ from werkzeug.security import (
 )
 
 import os
+import database
 
 from utils.resume_parser import extract_text_from_pdf
 
