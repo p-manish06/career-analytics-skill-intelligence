@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Career Analytics & Skill Intelligence Platform
+    </title>
+
+    <!-- Bootstrap -->
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+
+    <link rel="stylesheet"
+
+    href="{{ url_for('static',
+    filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="/">
+
+            <i class="fa-solid fa-brain"></i>
+
+            Career Analytics & Skill Intelligence Platform
+
+        </a>
+
+        <button
+
+        class="navbar-toggler"
+
+        type="button"
+
+        data-bs-toggle="collapse"
+
+        data-bs-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+
+        id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                    href="/history">
+
+                        Analysis History
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+    <a class="nav-link"
+    href="/logout">
+
+        Logout
+
+    </a>
+
+</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- Hero Section -->
+
+<section class="hero-section">
+
+    <div class="container text-center">
+
+        <h1 class="hero-title">
+
+            Career Analytics & Skill Intelligence Dashboard
+
+        </h1>
+
+        <p class="hero-subtitle">
+
+            Analyze resumes, identify skill gaps, measure career readiness, and generate 
+            data-driven career recommendations using 
+            machine learning and analytics.
+
+        </p>
+
+        <!-- Upload Card -->
+
+        <div class="glass-card upload-card">
+
+            <h3 class="mb-4">
+
+                <i class="fa-solid fa-file-arrow-up"></i>
+
+                Upload Resume
+
+            </h3>
+
+            <form
+
+            action="/upload"
+
+            method="POST"
+
+            enctype="multipart/form-data">
+
+                <div class="mb-4">
+
+    <label for="resumeUpload" class="custom-file-upload">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        Choose Resume
+
+    </label>
+
+    <input
+    type="file"
+    id="resumeUpload"
+    class="d-none"
+    name="resume"
+    accept=".pdf"
+    required>
+
+    <p id="file-name" class="mt-2 text-light">
+        No file chosen
+    </p>
+
+</div>
+
+                <button
+
+                type="submit"
+
+                class="btn custom-btn btn-lg">
+
+                    Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+   
+
+</section>
+
+<!-- Bootstrap JS -->
+
+<script
+
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+
+</script>
+<script>
+
+document.getElementById("resumeUpload").addEventListener("change", function() {
+
+    const fileName = this.files[0]
+        ? this.files[0].name
+        : "No file chosen";
+
+    document.getElementById("file-name").textContent = fileName;
+
+});
+
+</script>
+
+</body>
+
+</html>
